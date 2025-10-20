@@ -3,6 +3,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AuthProvider } from "../contexts/AuthContext";
 import { SyncProvider, SyncStatus } from "../contexts/SyncContext";
 import { Colors } from "../constants/Colors";
+import { ThemeProvider } from "styled-components";
+import { SoundProvider } from "../contexts/SoundContext";
+import theme from "../src/theme";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,29 +24,7 @@ function RootLayoutNav() {
     <SyncProvider>
       <SyncStatus />
       <Stack>
-        {user ? (
-          <>
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen
-              name="modal"
-              options={{
-                presentation: "modal",
-                title: "Detalhes",
-                headerStyle: {
-                  backgroundColor: Colors.primary,
-                },
-                headerTintColor: "#fff",
-              }}
-            />
-          </>
-        ) : (
-          <Stack.Screen
-            name="login"
-            options={{
-              headerShown: false,
-            }}
-          />
-        )}
+        {/* ... existing Stack content ... */}
       </Stack>
     </SyncProvider>
   );
@@ -53,7 +34,11 @@ export default function RootLayout() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <RootLayoutNav />
+        <ThemeProvider theme={theme}>
+          <SoundProvider>
+            <RootLayoutNav />
+          </SoundProvider>
+        </ThemeProvider>
       </AuthProvider>
     </QueryClientProvider>
   );

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Alert, Vibration } from "react-native";
+import { View, StyleSheet, Alert, Vibration, Text, Button } from "react-native";
 import { CameraView, useCameraPermissions } from "expo-camera";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Audio } from "expo-av";
-import { ScanSound } from "../../components/ScanSound";
+
 import { ScannerOverlay } from "../../components/ScannerOverlay";
 import { ProductService } from "../../services/ProductService";
 import { ProductSchema } from "../../types/Product";
@@ -89,7 +89,7 @@ export default function ScannerScreen() {
           barcodeTypes: ["ean13", "ean8", "upc_a", "upc_e", "code128"],
         }}>
         <ScannerOverlay />
-        <ScanSound />
+        
       </CameraView>
     </View>
   );

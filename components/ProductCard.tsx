@@ -7,11 +7,12 @@ import { Colors } from "../constants/Colors";
 interface ProductCardProps {
   product: Product;
   onDelete: () => void;
+  onPress: () => void;
 }
 
-export function ProductCard({ product, onDelete }: ProductCardProps) {
+export function ProductCard({ product, onDelete, onPress }: ProductCardProps) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.imageContainer}>
         {product.image ? (
           <Image
@@ -40,7 +41,7 @@ export function ProductCard({ product, onDelete }: ProductCardProps) {
       <TouchableOpacity style={styles.deleteButton} onPress={onDelete}>
         <Ionicons name="trash-outline" size={20} color={Colors.error} />
       </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
   );
 }
 

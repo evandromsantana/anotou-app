@@ -122,7 +122,7 @@ export function useOfflineSync() {
 
   const processSyncOperation = async (operation: SyncOperation) => {
     // Esta função será implementada no serviço de sincronização
-    const { syncOperation } = await import('@/services/SyncService');
+    const { syncOperation } = await import('../services/SyncService');
     return await syncOperation(operation);
   };
 

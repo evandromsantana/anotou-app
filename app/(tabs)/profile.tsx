@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, ScrollView, Alert } from "react-native";
+import { View, StyleSheet, ScrollView, Alert, Text } from "react-native";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../../contexts/AuthContext";
 import { StatsCard } from "../../components/StatsCard";

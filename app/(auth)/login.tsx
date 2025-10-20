@@ -7,10 +7,11 @@ import {
   Alert,
   KeyboardAvoidingView,
   Platform,
+  Text,
 } from "react-native";
-import { useAuth } from "@/contexts/AuthContext";
-import { Colors } from "@/constants/Colors";
-import { Scan } from "lucide-react-native";
+import { useAuth } from "../../contexts/AuthContext";
+import { Colors } from "../../constants/Colors";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
@@ -46,7 +47,7 @@ export default function LoginScreen() {
       behavior={Platform.OS === "ios" ? "padding" : "height"}>
       <View style={styles.logoContainer}>
         <View style={styles.logo}>
-          <Scan size={48} color={Colors.primary} />
+          <Ionicons name="scan-outline" size={48} color={Colors.primary} />
         </View>
         <Text style={styles.title}>OffList</Text>
         <Text style={styles.subtitle}>

@@ -26,11 +26,9 @@ export const storage = getStorage(app);
 // Habilitar persistência offline
 export const enableOfflinePersistence = async () => {
   try {
-    await enableIndexedDbPersistence(db, {
-      cacheSizeBytes: CACHE_SIZE_UNLIMITED
-    });
+    await enableIndexedDbPersistence(db);
     console.log('Persistência offline habilitada');
-  } catch (err) {
+  } catch (err: any) {
     console.error('Erro ao habilitar persistência offline:', err);
     if (err.code === 'failed-precondition') {
       console.warn('Múltiplas abas abertas, persistência pode não funcionar');

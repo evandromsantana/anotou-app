@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import {
   View,
   StyleSheet,
   Modal,
   TouchableOpacity,
   ScrollView,
+  Text,
 } from "react-native";
 import { useQuery } from "@tanstack/react-query";
 import { ProductService } from "../services/ProductService";

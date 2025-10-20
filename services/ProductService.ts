@@ -12,7 +12,8 @@ import {
   onSnapshot,
   Unsubscribe
 } from 'firebase/firestore';
-import { db } from './firebase';
+import { db } from "./firebase";
+
 import { Product, ProductSchema } from '../types/Product';
 
 export class ProductService {

@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import { useSync } from "../contexts/SyncContext";
 import { Colors } from "../constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
@@ -94,6 +94,5 @@ const styles = StyleSheet.create({
     color: Colors.textSecondary,
   },
   spinner: {
-    animation: "spin 1s linear infinite",
   },
 });

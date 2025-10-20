@@ -3,7 +3,7 @@ import { useOfflineSync } from "../hooks/useOfflineSync";
 import { enableOfflinePersistence } from "../services/firebase";
 
 interface SyncContextType {
-  isOnline: boolean;
+  isOnline: boolean | null;
   isSyncing: boolean;
   pendingOperations: number;
   syncStatus: string;

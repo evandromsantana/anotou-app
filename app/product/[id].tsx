@@ -6,6 +6,7 @@ import {
   Image,
   Alert,
   TouchableOpacity,
+  Text,
 } from "react-native";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";

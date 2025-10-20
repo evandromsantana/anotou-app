@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Alert, Vibration, Text, Button } from "react-native";
 import { CameraView, useCameraPermissions } from "expo-camera";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { Audio } from "expo-av";
-
+import { useSound } from "../../contexts/SoundContext";
 import { ScannerOverlay } from "../../components/ScannerOverlay";
 import { ProductService } from "../../services/ProductService";
 import { ProductSchema } from "../../types/Product";
@@ -12,8 +11,8 @@ import { Colors } from "../../constants/Colors";
 export default function ScannerScreen() {
   const [permission, requestPermission] = useCameraPermissions();
   const [isScanning, setIsScanning] = useState(false);
-  const [sound, setSound] = useState<Audio.Sound>();
   const queryClient = useQueryClient();
+  const { playScanSound } = useSound();
 
   const scanMutation = useMutation({
     mutationFn: ProductService.scanProduct,
@@ -32,21 +31,9 @@ export default function ScannerScreen() {
     },
   });
 
-  useEffect(() => {
-    return () => {
-      if (sound) {
-        sound.unloadAsync();
-      }
-    };
-  }, [sound]);
+  
 
-  async function playScanSound() {
-    const { sound } = await Audio.Sound.createAsync(
-      require("@/assets/sounds/scan.mp3")
-    );
-    setSound(sound);
-    await sound.playAsync();
-  }
+  
 
   const handleBarcodeScanned = async ({ data }: { data: string }) => {
     if (isScanning) return;
